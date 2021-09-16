@@ -29,8 +29,7 @@ class SignInRepository @Inject constructor(
                 }
 
                 override suspend fun createCall(): Flow<ApiResponse<SignInResponse>> {
-                    val response = apiService.userAuthentication(signIn)
-                    return response
+                    return apiService.userAuthentication(signIn)
                 }
             }.asFlow()
         }

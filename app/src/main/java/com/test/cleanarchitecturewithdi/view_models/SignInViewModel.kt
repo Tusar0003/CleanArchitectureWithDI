@@ -1,12 +1,11 @@
 package com.test.cleanarchitecturewithdi.view_models
 
-import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.test.cleanarchitecturewithdi.domains.SignInUseCase
-import com.test.cleanarchitecturewithdi.models.SignIn
 import com.test.cleanarchitecturewithdi.domains.Result
+import com.test.cleanarchitecturewithdi.domains.SignInUseCase
 import com.test.cleanarchitecturewithdi.domains.Status
+import com.test.cleanarchitecturewithdi.models.SignIn
 import com.test.cleanarchitecturewithdi.utils.WhileViewSubscribed
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -17,7 +16,7 @@ import javax.inject.Inject
 
 
 @HiltViewModel
-@OptIn(ExperimentalCoroutinesApi::class)
+@ExperimentalCoroutinesApi
 class SignInViewModel @Inject constructor(
     private val signInUseCase: SignInUseCase
 ) : ViewModel() {
@@ -61,7 +60,9 @@ class SignInViewModel @Inject constructor(
         val password = "Test@123"
 
         viewModelScope.launch {
-            userAuth.emit(SignIn(userName, password))
+            userAuth.emit(
+                SignIn(Login = userName, Password = password)
+            )
         }
     }
 }
