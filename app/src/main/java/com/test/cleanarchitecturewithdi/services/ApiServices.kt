@@ -1,7 +1,9 @@
 package com.test.cleanarchitecturewithdi.services
 
-import com.google.gson.JsonObject
-import retrofit2.Call
+import com.test.cleanarchitecturewithdi.models.SignIn
+import com.test.cleanarchitecturewithdi.models.SignInResponse
+import com.test.cleanarchitecturewithdi.utils.ApiResponse
+import kotlinx.coroutines.flow.Flow
 import retrofit2.http.Body
 import retrofit2.http.POST
 
@@ -9,5 +11,5 @@ import retrofit2.http.POST
 interface ApiServices {
 
     @POST("authentication")
-    fun userAuthentication() : Call<JsonObject>
+    fun userAuthentication(@Body signIn: SignIn) : Flow<ApiResponse<SignInResponse>>
 }

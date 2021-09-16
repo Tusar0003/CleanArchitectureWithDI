@@ -1,14 +1,96 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".views.fragments.SignInFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:background="@drawable/blue_gradient">
 
-</FrameLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="@dimen/_16sdp"
+            android:layout_marginTop="@dimen/_70sdp"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="@dimen/_150sdp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="@dimen/_20sdp"
+                android:src="@drawable/ic_launcher_foreground" />
+
+            <EditText
+                android:id="@+id/text_view_user_name"
+                android:layout_width="@dimen/_220sdp"
+                android:layout_height="@dimen/_40sdp"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:padding="@dimen/_5sdp"
+                android:gravity="center_vertical"
+                android:background="@drawable/login_text_field_background"
+                android:drawablePadding="@dimen/_5sdp"
+                app:drawableStartCompat="@drawable/ic_baseline_person_24"
+                android:hint="@string/username"
+                style="@style/MediumNormalGreyTextStyle" />
+
+            <EditText
+                android:id="@+id/text_view_password"
+                android:layout_width="@dimen/_220sdp"
+                android:layout_height="@dimen/_40sdp"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:padding="@dimen/_5sdp"
+                android:gravity="center_vertical"
+                android:background="@drawable/login_text_field_background"
+                android:drawablePadding="@dimen/_5sdp"
+                app:drawableStartCompat="@drawable/ic_baseline_lock_24"
+                android:hint="@string/password"
+                android:inputType="textPassword"
+                style="@style/MediumNormalGreyTextStyle" />
+
+            <Button
+                android:id="@+id/button_sign_in"
+                android:layout_width="@dimen/_220sdp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/_20sdp"
+                android:background="@drawable/login_button_background"
+                android:text="@string/sign_in"
+                style="@style/SubmitButtonStyle" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/forget_password"
+                style="@style/SmallNormalWhiteTextStyle" />
+        </LinearLayout>
+
+        <TextView
+            style="@style/SmallNormalWhiteTextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="@dimen/_16sdp"
+            android:text="@string/powered_by"
+            android:textAlignment="center" />
+
+        <TextView
+            android:id="@+id/text_view_version"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_margin="@dimen/_16sdp"
+            tools:text="V - 0.1"
+            style="@style/SmallBoldWhiteTextStyle" />
+
+        <include
+            android:id="@+id/progress_bar"
+            android:visibility="gone"
+            layout="@layout/progress_bar" />
+    </RelativeLayout>
+
+</layout>

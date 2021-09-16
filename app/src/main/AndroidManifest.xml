@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.test.cleanarchitecturewithdi" >
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.test.cleanarchitecturewithdi">
+
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:name=".TestApplication"
@@ -9,7 +12,10 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.CleanArchitectureWithDI" >
+        android:largeHeap="true"
+        android:theme="@style/Theme.CleanArchitectureWithDI"
+        android:usesCleartextTraffic="true"
+        tools:targetApi="m">
         <activity
             android:name=".views.activity.MainActivity"
             android:exported="true" >

@@ -1,13 +1,14 @@
 package com.test.cleanarchitecturewithdi.dependency_injection
 
 import com.google.gson.GsonBuilder
+import com.test.cleanarchitecturewithdi.BuildConfig
 import com.test.cleanarchitecturewithdi.services.ApiServices
+import com.test.cleanarchitecturewithdi.utils.FlowCallAdapterFactory
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import okhttp3.HttpUrl
-import okhttp3.HttpUrl.Companion.toHttpUrl
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -21,7 +22,7 @@ import javax.inject.Singleton
 class ApiModule {
 
     @Provides
-    fun provideBaseUrl() = BASE_URL
+    fun provideBaseUrl() = BuildConfig.BASE_URL
 
     @Provides
     @Singleton
@@ -38,6 +39,7 @@ class ApiModule {
             .addInterceptor(interceptor).build()
     }
 
+    @ExperimentalCoroutinesApi
     @Provides
     @Singleton
     fun provideRetrofit(okHttpClient: OkHttpClient, BASE_URL: String): Retrofit {
@@ -47,6 +49,7 @@ class ApiModule {
 
         return Retrofit.Builder().baseUrl(BASE_URL)
             .addConverterFactory(GsonConverterFactory.create(gSon))
+            .addCallAdapterFactory(FlowCallAdapterFactory())
             .client(okHttpClient)
             .build()
     }
@@ -55,7 +58,7 @@ class ApiModule {
     @Singleton
     fun provideApiService(retrofit: Retrofit): ApiServices = retrofit.create(ApiServices::class.java)
 
-    companion object {
-        val BASE_URL: HttpUrl = "http://192.168.97.24:8098/api/".toHttpUrl()
-    }
+//    companion object {
+//        val BASE_URL: HttpUrl = "http://192.168.97.24:8098/api/".toHttpUrl()
+//    }
 }

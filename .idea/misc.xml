@@ -3,8 +3,12 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Android/Test Projects/CleanArchitectureWithDI/app/src/main/res/drawable/selected_background.xml" value="0.3594871794871795" />
+        <entry key="..\:/Android/Test Projects/CleanArchitectureWithDI/app/src/main/res/drawable/splash_launcher.xml" value="0.3594871794871795" />
         <entry key="..\:/Android/Test Projects/CleanArchitectureWithDI/app/src/main/res/layout/activity_main.xml" value="0.3489583333333333" />
         <entry key="..\:/Android/Test Projects/CleanArchitectureWithDI/app/src/main/res/layout/fragment_sign_in.xml" value="0.3489583333333333" />
+        <entry key="..\:/Android/Test Projects/CleanArchitectureWithDI/app/src/main/res/layout/layout_toolbar.xml" value="0.19114583333333332" />
+        <entry key="..\:/Android/Test Projects/CleanArchitectureWithDI/app/src/main/res/layout/progress_bar.xml" value="0.3489583333333333" />
       </map>
     </option>
   </component>
